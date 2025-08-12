@@ -1,0 +1,15 @@
+services:
+  ollama:
+    build: .
+    image: mistral-ollama:latest
+    container_name: ollama-server
+    ports:
+      - "11434:11434"
+    environment:
+      - HF_TOKEN=${HF_TOKEN}
+    volumes:
+      - ollama_data:/home/ollama/.ollama
+    restart: always
+
+volumes:
+  ollama_data:

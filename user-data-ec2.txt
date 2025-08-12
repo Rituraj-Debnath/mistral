@@ -1,0 +1,14 @@
+#!/bin/bash
+# ====== Set Hugging Face Token ======
+HF_TOKEN="hf_XMJRdOcsNyjzUHVDzLmupyznJmEgjHux"  
+echo "HF_TOKEN=${HF_TOKEN}" >> /etc/environment
+export HF_TOKEN=${HF_TOKEN}
+
+# ====== Install Docker ======
+apt-get update -y
+apt-get upgrade -y
+apt-get install -y docker.io docker-compose
+
+# Enable Docker at boot
+systemctl enable docker
+systemctl start docker
